@@ -44,7 +44,7 @@ export default function initMap(ymaps, containerId) {
   const listBoxControl = createFilterControl(ymaps);
   myMap.controls.add(listBoxControl);
 
-  var filterMonitor = new ymaps.Monitor(listBoxControl.state);
+  const filterMonitor = new ymaps.Monitor(listBoxControl.state);
   filterMonitor.add('filters', filters => {
     objectManager.setFilter(
       obj => filters[obj.isActive ? 'active' : 'defective']
