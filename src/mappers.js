@@ -1,13 +1,13 @@
 export function mapServerData(serverData) {
   return {
-    type: "FeatureCollection",
+    type: 'FeatureCollection',
     features: serverData.map((obj, index) => ({
       id: index,
-      type: "Feature",
+      type: 'Feature',
       isActive: obj.isActive,
       geometry: 
       {
-        type: "Point",
+        type: 'Point',
         coordinates: [obj.long, obj.lat]
       },
       properties: {
