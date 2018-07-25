@@ -15,7 +15,8 @@ export default function initMap(ymaps, containerId) {
     clusterIconLayout: 'default#pieChart',
     clusterDisableClickZoom: false,
     geoObjectOpenBalloonOnClick: false,
-    geoObjectHideIconOnBalloonOpen: false
+    geoObjectHideIconOnBalloonOpen: false,
+    geoObjectBalloonContentLayout: getDetailsContentLayout(ymaps)
   });
 
   myMap.geoObjects.add(objectManager);
