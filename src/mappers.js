@@ -1,15 +1,15 @@
-export function mapServerData(serverData) {
+export const mapServerData = (serverData) => {
   return {
     type: 'FeatureCollection',
     features: serverData.map((obj, index) => ({
       id: index,
       type: 'Feature',
       isActive: obj.isActive,
-      geometry: 
-      {
-        type: 'Point',
-        coordinates: [obj.lat, obj.long]
-      },
+      geometry:
+        {
+          type: 'Point',
+          coordinates: [obj.lat, obj.long]
+        },
       properties: {
         iconCaption: obj.serialNumber
       },
@@ -17,11 +17,11 @@ export function mapServerData(serverData) {
         preset: getObjectPreset(obj)
       }
     }))
-  };
+  }
 }
 
-function getObjectPreset(obj) {
+const getObjectPreset = (obj) => {
   return obj.isActive
     ? 'islands#blueCircleDotIconWithCaption'
-    : 'islands#redCircleDotIconWithCaption';
+    : 'islands#redCircleDotIconWithCaption'
 }

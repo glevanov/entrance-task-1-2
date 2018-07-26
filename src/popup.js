@@ -1,31 +1,31 @@
-function getTableRowHtml(obj) {
-    return `
+const getTableRowHtml = (obj) => {
+  return `
         <tr>
             <td>${obj.id}</td>
             <td>${obj.operator}</td>
         </tr>
-    `;
+    `
 }
 
-export function getPopupContent(obj) {
+export const getPopupContent = (obj) => {
 
-    const htmlStatus = obj.isActive
-        ? `<div class="station-info-active">active</div>`
-        : `<div class="station-info-defective">defective</div>`
+  const htmlStatus = obj.isActive
+    ? `<div class="station-info-active">active</div>`
+    : `<div class="station-info-defective">defective</div>`
 
-    let content = `
+  let content = `
         <div class="station-info">
             <div class="station-info-label">base stations</div>
             <div class="station-info-title">${obj.serialNumber}</div>
             ${htmlStatus}
             <div class="station-info-connections">${obj.connections}</div>
         </div>
-    `;
+    `
 
-    if (obj.isActive) {
-        const htmlRows = obj.drones.map(getTableRowHtml).join('\n');
+  if (obj.isActive) {
+    const htmlRows = obj.drones.map(getTableRowHtml).join('\n')
 
-        const htmlTable = `
+    const htmlTable = `
             <table class="station-info-drones-table">
                 <thead>
                     <tr>
@@ -37,10 +37,10 @@ export function getPopupContent(obj) {
                     ${htmlRows}
                 </tbody>
             </table>
-        `;
+        `
 
-        htmlInfo += htmlTable;
-    }
+    content += htmlTable
+  }
 
-    return content;
+  return content
 }
